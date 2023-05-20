@@ -3,32 +3,6 @@ import "./App.css";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 
-import {createStore} from "redux";
-
-const COUNTER_INCREMENT = "counter/incremented";
-const COUNTER_DECREMENT = "counter/decremented";
-
-type Action = {
-  type: "counter/incremented" | "counter/decremented";
-}
-
-function counterReducer(state = {value: 0}, action: Action) {
-  switch (action.type) {
-    case COUNTER_INCREMENT:
-      return {value: state.value + 1};
-    case COUNTER_DECREMENT:
-      return {value: state.value - 1};
-    default:
-      return state;
-  }
-}
-
-const store = createStore(counterReducer);
-store.subscribe(() => console.log(store.getState()));
-store.dispatch({type: COUNTER_INCREMENT});
-store.dispatch({type: COUNTER_INCREMENT});
-store.dispatch({type: COUNTER_DECREMENT});
-
 function App() {
   const [count, setCount] = useState(0);
 
