@@ -3,8 +3,13 @@ import './App.css'
 
 import {atom, useAtom} from 'jotai'
 
-// Create your atoms and derivatives
 const textAtom = atom('')
+textAtom.onMount = (set) => {
+  set('hello')
+  console.log('textAtom mounted')
+  return () => console.log('textAtom unmounted')
+}
+
 const uppercaseAtom = atom((get) => get(textAtom).toUpperCase())
 
 // Use them anywhere in your app
